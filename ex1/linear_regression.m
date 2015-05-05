@@ -22,6 +22,6 @@ function [f,g] = linear_regression(theta, X,y)
 for j = 1:m
   h = sum(theta.*X(:,j));
   Diff = h - y(j);
-  g = g + X(:,j)*Diff;
   f = f + 0.5 * Diff * Diff;
+  g = g + X(:,j)*Diff;
 end

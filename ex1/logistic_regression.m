@@ -21,4 +21,10 @@ function [f,g] = logistic_regression(theta, X,y)
   % TODO:  Compute the gradient of the objective by looping over the dataset and summing
   %        up the gradients (df/dtheta) for each example. Store the result in 'g'.
   %
-%%% YOUR CODE HERE %%%
+
+for j = 1:m
+  h = 1/(1 + sum(exp(-theta.*X(:,j))));
+  Diff = h - y(j);
+  f = f - ( y(j) * log(h) + (1 - y(j)) * log(1 - h));
+  g = g + X(:,j)*Diff;
+end
