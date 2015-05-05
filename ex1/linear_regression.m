@@ -22,3 +22,10 @@ function [f,g] = linear_regression(theta, X,y)
   %        computed gradient in 'g'.
   
 %%% YOUR CODE HERE %%%
+
+for j = 1:m
+  h = sum(theta.*X(:,j));
+  Diff = h - y(j);
+  g = g + X(:,j)*Diff;
+  f = f + 0.5 * Diff * Diff;
+end
